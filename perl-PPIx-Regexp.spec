@@ -8,13 +8,13 @@
 Summary:	PPIx::Regexp - represent a regular expression of some sort
 Summary(pl.UTF-8):	PPIx::Regexp - reprezentacja pewnego rodzaju wyrażenia regularnego
 Name:		perl-PPIx-Regexp
-Version:	0.024
+Version:	0.025
 Release:	1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-authors/id/W/WY/WYANT/PPIx-Regexp-%{version}.tar.gz
-# Source0-md5:	d27b7a2124eb0daf4ac19d882329a307
+# Source0-md5:	ae7ea4f2996598a046e73055fc54dcac
 URL:		http://search.cpan.org/dist/PPIx-Regexp/
 BuildRequires:	perl-Module-Build
 BuildRequires:	perl-devel >= 1:5.8.0
