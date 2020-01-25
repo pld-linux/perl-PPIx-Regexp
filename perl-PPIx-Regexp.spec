@@ -4,7 +4,6 @@
 #
 %define		pdir	PPIx
 %define		pnam	Regexp
-%include	/usr/lib/rpm/macros.perl
 Summary:	PPIx::Regexp - represent a regular expression of some sort
 Summary(pl.UTF-8):	PPIx::Regexp - reprezentacja pewnego rodzaju wyrażenia regularnego
 Name:		perl-PPIx-Regexp
