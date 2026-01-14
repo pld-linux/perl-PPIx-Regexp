@@ -8,7 +8,7 @@ Summary:	PPIx::Regexp - represent a regular expression of some sort
 Summary(pl.UTF-8):	PPIx::Regexp - reprezentacja pewnego rodzaju wyrażenia regularnego
 Name:		perl-PPIx-Regexp
 Version:	0.050
-Release:	1
+Release:	2
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
