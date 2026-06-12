@@ -7,13 +7,13 @@
 Summary:	PPIx::Regexp - represent a regular expression of some sort
 Summary(pl.UTF-8):	PPIx::Regexp - reprezentacja pewnego rodzaju wyrażenia regularnego
 Name:		perl-PPIx-Regexp
-Version:	0.050
-Release:	2
+Version:	0.091
+Release:	1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-authors/id/W/WY/WYANT/PPIx-Regexp-%{version}.tar.gz
-# Source0-md5:	512573bd4c597e96ce07ff11d50a7df6
+# Source0-md5:	89a883c76779496b75a919f5b3934d65
 URL:		http://search.cpan.org/dist/PPIx-Regexp/
 BuildRequires:	perl-Module-Build
 BuildRequires:	perl-devel >= 1:5.8.0
@@ -58,7 +58,7 @@ install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 cp -a eg/* $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
 %{__sed} -i -e '1s,/usr/bin/env perl,%{__perl},' \
-	$RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}/preslurp
+	$RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}/*
 
 %clean
 rm -rf $RPM_BUILD_ROOT
