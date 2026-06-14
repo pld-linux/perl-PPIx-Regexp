@@ -1,6 +1,6 @@
 #
 # Conditional build:
-%bcond_without	tests		# do not perform "make test"
+%bcond_without	tests		# unit tests
 #
 %define		pdir	PPIx
 %define		pnam	Regexp
@@ -12,17 +12,19 @@ Release:	1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
-Source0:	http://www.cpan.org/modules/by-authors/id/W/WY/WYANT/PPIx-Regexp-%{version}.tar.gz
+Source0:	https://www.cpan.org/modules/by-authors/id/W/WY/WYANT/PPIx-Regexp-%{version}.tar.gz
 # Source0-md5:	89a883c76779496b75a919f5b3934d65
-URL:		http://search.cpan.org/dist/PPIx-Regexp/
-BuildRequires:	perl-Module-Build
+URL:		https://metacpan.org/dist/PPIx-Regexp
+BuildRequires:	perl-Module-Build >= 0.42
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
 %if %{with tests}
+BuildRequires:	perl-Encode
 BuildRequires:	perl-List-MoreUtils
-BuildRequires:	perl-PPI >= 1.117
+BuildRequires:	perl-PPI >= 1.238
+BuildRequires:	perl-Scalar-List-Utils
 BuildRequires:	perl-Task-Weaken
-BuildRequires:	perl-Test-Simple >= 0.40
+BuildRequires:	perl-Test-Simple >= 0.88
 %endif
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -45,9 +47,12 @@ dającą się przeglądać w bardzo podobny sposób.
 %{__perl} Build.PL \
 	destdir=$RPM_BUILD_ROOT \
 	installdirs=vendor
+
 ./Build
 
-%{?with_tests:./Build test}
+%if %{with tests}
+./Build test
+%endif
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -65,7 +70,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc Changes README
+%doc Changes README SECURITY
 %{perl_vendorlib}/PPIx/Regexp.pm
 %{perl_vendorlib}/PPIx/Regexp
 %{_mandir}/man3/PPIx::Regexp*.3pm*
